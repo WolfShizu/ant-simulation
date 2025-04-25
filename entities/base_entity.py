@@ -1,31 +1,29 @@
 from map.map_stats import MapStats
 
-class GenerateBasicAttributes:
-    @staticmethod
-    def genereate_attributes(map_stats: MapStats, coord_x, coord_y, speed = 2, start_delay = 1):
-        """
-        Gera os atributos básicos da entidade
-        Args:
-            map_stats (MapStats): Objeto com as informações do mapa.
-            coord_x (int): Coordenada do eixo X.
-            coord_y (int): Coordenada do eixo Y.
-            speed (int): Número de ticks entre ações.
-            start_delay (int): Tick em que a entidade deve começar a agir
-        Returns:
-            dict:
-                - "map_stats" (MapStats): Objeto com as informações do mapa
-                - "coord_x" (int): Coordenada do eixo X
-                - "coord_y" (int): Coordenada do eixo Y
-                - "speed" (int): Número de ticks entre ações
-                - "start_delay" (int): Tick em que a entidade deve começar a agir
-        """
-        return {
-            "map_stats": map_stats,
-            "coord_x": coord_x,
-            "coord_y": coord_y,
-            "speed": speed,
-            "start_delay": start_delay
-        }
+def genereate_attributes(map_stats: MapStats, coord_x, coord_y, speed = 2, start_delay = 1):
+    """
+    Gera os atributos básicos da entidade
+    Args:
+        map_stats (MapStats): Objeto com as informações do mapa.
+        coord_x (int): Coordenada do eixo X.
+        coord_y (int): Coordenada do eixo Y.
+        speed (int): Número de ticks entre ações.
+        start_delay (int): Tick em que a entidade deve começar a agir
+    Returns:
+        dict:
+            - "map_stats" (MapStats): Objeto com as informações do mapa
+            - "coord_x" (int): Coordenada do eixo X
+            - "coord_y" (int): Coordenada do eixo Y
+            - "speed" (int): Número de ticks entre ações
+            - "start_delay" (int): Tick em que a entidade deve começar a agir
+    """
+    return {
+        "map_stats": map_stats,
+        "coord_x": coord_x,
+        "coord_y": coord_y,
+        "speed": speed,
+        "start_delay": start_delay
+    }
 
 class baseEntity:
     """
