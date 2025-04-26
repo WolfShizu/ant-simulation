@@ -1,10 +1,8 @@
-from map.map_stats import MapStats
+from map.map_handler import get_map_stats
 from entities.base_entity import genereate_attributes, baseEntity
 
-map_stats = MapStats()
-
 entity1 = baseEntity(genereate_attributes(
-    map_stats= map_stats,
+    map_stats= get_map_stats(),
     coord_x= 0,
     coord_y= 0,
     speed= 2,

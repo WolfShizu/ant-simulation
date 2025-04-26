@@ -1,5 +1,4 @@
 from map.map_stats import MapStats
-map_stats_class = MapStats()
 
 def genereate_attributes(map_stats: MapStats, coord_x, coord_y, speed = 2, start_delay = 1):
     """
