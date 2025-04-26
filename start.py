@@ -13,7 +13,7 @@ entity1 = baseEntity(genereate_attributes(
 
 entity1.move()
 
-entity_map_stat = entity1.get_attribute("map_stats") # Acessa a classe da entidade
+entity_map_stat = entity1.attributes["map_stats"] # Acessa a classe da entidade
 
 print(entity_map_stat.current_tick) # acessa a classe do map_stats
 

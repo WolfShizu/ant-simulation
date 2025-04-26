@@ -1,4 +1,5 @@
 from map.map_stats import MapStats
+map_stats_class = MapStats()
 
 def genereate_attributes(map_stats: MapStats, coord_x, coord_y, speed = 2, start_delay = 1):
     """
@@ -37,16 +38,6 @@ class baseEntity:
         """
         self.attributes = attributes
 
-    def get_attribute(self, key):
-        """
-        Retorna um atributo da entidade
-        Args:
-            key (string): Atributo a ser recuperado
-        Returns:
-            Valor do atributo
-        """
-        return self.attributes[key]
-
     def should_act(self):
         """
         Verifica se a entidade deve ou não se mover no tick atual com base no map_stats
@@ -54,10 +45,9 @@ class baseEntity:
             True: Caso a entidade possa se  mover
             False: Caso a entidade não possa se mover
         """
-        speed = self.get_attribute("speed")
-        start_delay = self.get_attribute("start_delay")
-        map_stats = self.get_attribute("map_stats")
-        current_tick = map_stats.current_tick
+        speed = self.attributes["speed"]
+        start_delay = self.attributes["start_delay"]
+        current_tick = self.attributes["map_stats"].current_tick
         
         if current_tick == start_delay or current_tick % speed == 0:
             return True
