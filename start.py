@@ -1,4 +1,4 @@
-from map.map_handler import get_map_stats
+from map.map_handler import get_map_stats, SimulationMap
 from entities.base_entity import genereate_attributes, baseEntity
 
 entity1 = baseEntity(genereate_attributes(
@@ -11,10 +11,14 @@ entity1 = baseEntity(genereate_attributes(
 
 entity1.move()
 
-entity_map_stat = entity1.attributes["map_stats"] # Acessa a classe da entidade
+entity_map_stat = entity1.attributes["map_stats"] # Acessa a instância da entidade
 
 print(entity_map_stat.current_tick) # acessa a classe do map_stats
 
-entity_map_stat.current_tick = 2
+simulation_map = SimulationMap(size_x= 2, size_y= 10) # instancia o mapa
 
-print(entity_map_stat.current_tick)
+simulation_map.create_empty_map() # Cria o mapa dentro do objeto
+
+print(simulation_map.map_array) 
+
+print(simulation_map.get_map_string()) # Mostra o mapa formatado fora da lista
