@@ -22,7 +22,15 @@ class SimulationHandler():
         """
         self.map_handler.start(size_x, size_y, sprite)
 
-    def create_entity(self, entity_type, coord_x, coord_y, speed = 2, start_delay = 1):
+    def create_entity(
+        self,
+        entity_type: str,
+        coord_x: int,
+        coord_y: int,
+        speed: int = 2,
+        start_delay: int = 1,
+        attack_damage: int | None = None
+    ):
         """
         Cria uma nova entidade
         Args:
@@ -31,13 +39,16 @@ class SimulationHandler():
             coord_y(int): Coordenada Y da entidade
             speed(int): Número de ticks entre cada ação
             start_delay(int): Tick de início da entidade
+            attack_damage(int): Dano de ataque da entidade
         """
         
-        attributes = self.entity_handler.create_attributes( # Gera um dicionário dos atributos
-            map_stats= self.map_handler.get_map_stats(),
-            coord_x= coord_x,
-            coord_y= coord_y,
-            speed= speed,
-            start_delay= start_delay
-        )
+        attributes = {
+            "entity_type": entity_type,
+            "coord_x": coord_x,
+            "coord_y": coord_y,
+            "speed": speed,
+            "start_delay": start_delay,
+            "attack_damage": attack_damage
+        }
+
         return self.entity_handler.create_entity(entity_type, attributes)
