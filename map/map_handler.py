@@ -53,3 +53,5 @@ class SimulationMap:
 
         return map_string
     
+    def add_entity(self, entity):
+        self.map_array[entity.attributes["coord_x"], entity.attributes["coord_y"]] = "O"
