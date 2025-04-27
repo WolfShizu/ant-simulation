@@ -12,7 +12,7 @@ class SimulationHandler():
         self.map_handler = MapHandler()
         self.entity_handler = EntityHandler()
 
-    def start_map(self, size_x, size_y, sprite):
+    def start_map(self, size_x: int, size_y: int, sprite: str):
         """
         Inicia o mapa
         Args:

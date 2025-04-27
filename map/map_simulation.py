@@ -1,10 +1,12 @@
 import numpy as np
 
+from map.map_stats import MapStats
+
 class MapSimulation:
     """
     Classe do mapa da simulação
     """
-    def __init__(self,  size_x, size_y, map_stats):    
+    def __init__(self,  size_x: int, size_y: int, map_stats: MapStats):    
         """
         Inicia a instância com as configurações básicas do mapa
         Args:
@@ -16,7 +18,7 @@ class MapSimulation:
         self.size_y = size_y
         self.map_array = None
 
-    def create_empty_map(self, key = "X"):
+    def create_empty_map(self, key: str = "X"):
         """
         Cria um mapa vazio e guarda no map_array
         Args:
@@ -41,5 +43,5 @@ class MapSimulation:
 
         return map_string
     
-    def add_entity(self, entity):
-        self.map_array[entity.attributes["coord_x"], entity.attributes["coord_y"]] = "O"
+    #def add_entity(self, entity):
+    #    self.map_array[entity.attributes["coord_x"], entity.attributes["coord_y"]] = "O"

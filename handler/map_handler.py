@@ -2,7 +2,7 @@ from map.map_stats  import MapStats
 from map.map_simulation import MapSimulation
 
 class MapHandler:
-    def start(self, size_x, size_y, sprite):
+    def start(self, size_x: int, size_y: int, sprite: int):
         self.map_stats = MapStats()
         self.map_simulation = MapSimulation(size_x= size_x, size_y= size_y, map_stats= self.map_stats)
 
@@ -19,7 +19,7 @@ class MapHandler:
     def get_map_string_view(self):
         return self.map_simulation.get_map_string()
     
-    def add_entity(self, coord_X, coord_y, sprite):
+    def add_entity(self, coord_X: int, coord_y: int, sprite: str):
         self.map_simulation.add_entity()
 
 
