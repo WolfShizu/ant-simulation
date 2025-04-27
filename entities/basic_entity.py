@@ -1,12 +1,18 @@
+from map.map_stats import MapStats
+
 class basicEntity:
     """
-    Classe base para outras entidades com comandos básicos
+    Classe da entidade básica
     """
-    def __init__(self, map_stats, coord_x, coord_y, speed, start_delay):
+    def __init__(self, map_stats: MapStats, coord_x: int, coord_y: int, speed: int, start_delay: int):
         """
-        Inicia a instância com as configurações básicas da entidade
+        Inicia a instância com os atributos da entidade
         Args:
-            attributes(dict): Contém os atributos básicos da entidade (gerados na função genereate_attributes)
+            map_stats(MapStats): Referência à instância dos stats do mapa
+            coord_x(int): Coordenada X da entidade
+            coord_y(int): Coordenada Y da entidade
+            spped(int): Ticks entre cada ação da entidade
+            start_delay(int): Tick em que a entidade começará a agir
         """
         self.map_stats = map_stats
         self.coord_x = coord_x

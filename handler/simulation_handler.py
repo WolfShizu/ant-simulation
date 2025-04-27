@@ -3,7 +3,7 @@ from handler.entity_handler import EntityHandler
 
 class SimulationHandler():
     """
-    Classe responsável por gerenciar a simulação
+    Classe responsável por gerenciar a simulação. Faz uso de outros handlers para isso
     """
     def __init__(self):
         """
@@ -34,7 +34,7 @@ class SimulationHandler():
         """
         Cria uma nova entidade
         Args:
-            entity_type(str): Nome do tipo da entidade
+            entity_type(str): Nome do tipo da entidade (ex: "basic", "tank")
             coord_x(int): Coordenada X da entidade
             coord_y(int): Coordenada Y da entidade
             speed(int): Número de ticks entre cada ação
@@ -43,6 +43,7 @@ class SimulationHandler():
         """
         
         attributes = {
+            "map_stats": self.map_handler.get_map_stats(),
             "entity_type": entity_type,
             "coord_x": coord_x,
             "coord_y": coord_y,

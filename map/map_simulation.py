@@ -12,6 +12,7 @@ class MapSimulation:
         Args:
             size_x(int): Quantidade de linhas do mapa
             size_y(int): Quantidade de colunas do mapa
+            map_stats(MapStats): Referência à instância dos stats do mapa 
         """
         self.stats = map_stats
         self.size_x = size_x

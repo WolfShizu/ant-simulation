@@ -2,7 +2,17 @@ from map.map_stats  import MapStats
 from map.map_simulation import MapSimulation
 
 class MapHandler:
-    def start(self, size_x: int, size_y: int, sprite: int):
+    """
+    Classe responsável por gerenciar o mapa
+    """
+    def start(self, size_x: int, size_y: int, sprite: str):
+        """
+        Gera um mapa com tamanho e sprite
+        Args:
+            size_x(int): Tamanho X do mapa
+            size_y(int): Tamanho Y do mapa
+            sprite(str): Sprite do mapa, que representará cada célula
+        """
         self.map_stats = MapStats()
         self.map_simulation = MapSimulation(size_x= size_x, size_y= size_y, map_stats= self.map_stats)
 
