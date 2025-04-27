@@ -1,7 +1,8 @@
 from map.map_handler import get_map_stats, SimulationMap
-from entities.base_entity import genereate_attributes, baseEntity
 
-entity1 = baseEntity(genereate_attributes(
+from entities.base_entity import genereate_attributes, basicEntity
+
+entity1 = basicEntity(genereate_attributes(
     map_stats= get_map_stats(),
     coord_x= 2,
     coord_y= 2,
