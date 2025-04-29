@@ -8,9 +8,11 @@ class EntityHandler:
         """
         Inicia a instância, gerando um dicionário das funções para criar as entidades
         """
-        self.entity_map = { # Usando para saber qual entidade deve ser criada, usando a função correspondente
+        self.entities_type = { # Usando para saber qual entidade deve ser criada, usando a função correspondente
             "basic": self.create_basic_entity
         }
+
+        self.entities_list = []
 
     def create_entity(self, entity_type: str, attributes: dict):
         """
@@ -19,10 +21,12 @@ class EntityHandler:
             entity_type(str): Tipo da entidade (ex: "basic", "tank")
             attributes(dict): Dicionário com os atributos da entidade
         """
-        create_entity_function = self.entity_map.get(entity_type) # Pega a função da entidade escolhida
+        create_entity_function = self.entities_type.get(entity_type) # Pega a função da entidade escolhida
 
         if create_entity_function:
-            return create_entity_function(attributes) # Retorna a entidade criada
+            entity = create_entity_function(attributes)
+            self.entities_list.append(entity)
+            return  entity
         else:
             pass
             # Adicionar tratamento de erro
