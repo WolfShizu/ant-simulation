@@ -8,13 +8,31 @@ class EntityHandler:
         """
         Inicia a instância, gerando um dicionário das funções para criar as entidades
         """
+
+        self.id_counter = 1
+
         self.entities_type = { # Usando para saber qual entidade deve ser criada, usando a função correspondente
             "basic": self.create_basic_entity
         }
 
-        self.entities_list = []
+        self.entities_map = {}
 
-    def getIntentions():
+    def _set_entity(self, entity):
+        id = self.id_counter
+        self.id_counter += 1
+
+        self.entities_map[id] = entity
+
+    def get_intentions(self):
+        """
+        Gera uma lista com as intenções das entidades
+        """
+        pass
+    
+    def recalculate_intentions(self, intentions):
+        """
+        Recalcula a intenção das entidades
+        """
         pass
 
     def create_entity(self, entity_type: str, attributes: dict):
@@ -28,8 +46,8 @@ class EntityHandler:
 
         if create_entity_function:
             entity = create_entity_function(attributes)
-            self.entities_list.append(entity)
-            return  entity
+            self._set_entity(entity)
+            return entity
         else:
             pass
             # Adicionar tratamento de erro
@@ -47,7 +65,5 @@ class EntityHandler:
             speed= attributes["speed"],
             start_delay= attributes["start_delay"]
             )
-        
-        self.entities_list.append(entity)
 
         return entity
