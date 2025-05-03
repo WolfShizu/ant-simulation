@@ -8,6 +8,7 @@ class basicEntity:
         """
         Inicia a instância com os atributos da entidade
         Args:
+            id(int): ID da entidade
             map_stats(MapStats): Referência à instância dos stats do mapa
             coord_x(int): Coordenada X da entidade
             coord_y(int): Coordenada Y da entidade

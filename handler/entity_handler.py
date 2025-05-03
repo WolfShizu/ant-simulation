@@ -18,10 +18,18 @@ class EntityHandler:
         self.entities_map = {}
 
     def _new_id(self):
+        """
+        Gera um novo ID único
+        """
         self.id_counter += 1
         return self.id_counter
 
     def _register_entity(self, entity):
+        """
+        Adiciona a entidade ao mapa de entidades, junto de seu ID
+        Args:
+            entity(basic_entity): Qualquer entidade que herde do basic_entity
+        """
         self.entities_map[entity.id] = entity
 
     def get_intentions(self):
@@ -57,6 +65,7 @@ class EntityHandler:
         """
         Função para criar a entidade do tipo básico
         Args:
+        id(int): ID da entidade
             attributes(dict): Atributos da entidade
         """
         entity = basicEntity(
