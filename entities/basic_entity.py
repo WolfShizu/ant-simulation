@@ -37,24 +37,40 @@ class basicEntity:
             return True
         return False
 
-    def act(self):
+    def act(self): # teste
         """
         Gera uma ação para a entidade
         """
         self.move()
 
-    def move(self):
+    def move(self): # teste
         """
         Move a entidade
         """
         print("moving...")
     
-    def get_intention(self): # Retorna a intenção da entidade
+    def _generate_intentions(self):
         pass
-        """return {
-            "action": None,
+
+    def get_intention(self):
+        """
+        Retorna os dados da intenção de ação da entidade (ex: mover, atacar)
+        Returns:
+            dict: Dicionário com os dados da ação
+        """
+        generated_intention = self._generate_intentions()
+
+        extra_data = generated_intention["extra_data"] # Dados não obrigatórios (ex: dano, cura)
+
+        intention = {
+            "id": self.id,
             "source_x": self.coord_x,
             "source_y": self.coord_y,
-            "target_x": 
-        }"""
-    
+            "action": generated_intention["action"],
+            "target_x": generated_intention["target_x"],
+            "target_y": generated_intention["target_y"]
+        } 
+
+        intention.update(extra_data)
+
+        return intention
