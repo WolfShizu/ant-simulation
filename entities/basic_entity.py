@@ -4,7 +4,7 @@ class basicEntity:
     """
     Classe da entidade básica
     """
-    def __init__(self, map_stats: MapStats, coord_x: int, coord_y: int, speed: int, start_delay: int):
+    def __init__(self, id: int, map_stats: MapStats, coord_x: int, coord_y: int, speed: int, start_delay: int):
         """
         Inicia a instância com os atributos da entidade
         Args:
@@ -14,6 +14,7 @@ class basicEntity:
             spped(int): Ticks entre cada ação da entidade
             start_delay(int): Tick em que a entidade começará a agir
         """
+        self.id = id
         self.map_stats = map_stats
         self.coord_x = coord_x
         self.coord_y = coord_y
@@ -46,3 +47,13 @@ class basicEntity:
         Move a entidade
         """
         print("moving...")
+    
+    def get_intention(self): # Retorna a intenção da entidade
+        pass
+        """return {
+            "action": None,
+            "source_x": self.coord_x,
+            "source_y": self.coord_y,
+            "target_x": 
+        }"""
+    

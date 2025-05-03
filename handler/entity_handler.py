@@ -9,7 +9,7 @@ class EntityHandler:
         Inicia a instância, gerando um dicionário das funções para criar as entidades
         """
 
-        self.id_counter = 1
+        self.id_counter = 0
 
         self.entities_type = { # Usando para saber qual entidade deve ser criada, usando a função correspondente
             "basic": self.create_basic_entity
@@ -17,11 +17,12 @@ class EntityHandler:
 
         self.entities_map = {}
 
-    def _set_entity(self, entity):
-        id = self.id_counter
+    def _new_id(self):
         self.id_counter += 1
+        return self.id_counter
 
-        self.entities_map[id] = entity
+    def _register_entity(self, entity):
+        self.entities_map[entity.id] = entity
 
     def get_intentions(self):
         """
@@ -45,20 +46,21 @@ class EntityHandler:
         create_entity_function = self.entities_type.get(entity_type) # Pega a função da entidade escolhida
 
         if create_entity_function:
-            entity = create_entity_function(attributes)
-            self._set_entity(entity)
+            entity = create_entity_function(self._new_id, attributes)
+            self._register_entity(entity)
             return entity
         else:
             pass
             # Adicionar tratamento de erro
 
-    def create_basic_entity(self, attributes: dict):
+    def create_basic_entity(self, id: int, attributes: dict):
         """
         Função para criar a entidade do tipo básico
         Args:
             attributes(dict): Atributos da entidade
         """
         entity = basicEntity(
+            id= id,
             map_stats= attributes["map_stats"],
             coord_x= attributes["coord_x"],
             coord_y= attributes["coord_y"],
