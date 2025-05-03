@@ -14,6 +14,9 @@ class EntityHandler:
 
         self.entities_list = []
 
+    def getIntentions():
+        pass
+
     def create_entity(self, entity_type: str, attributes: dict):
         """
         Cria uma entidade do tipo escolhido
@@ -37,10 +40,14 @@ class EntityHandler:
         Args:
             attributes(dict): Atributos da entidade
         """
-        return basicEntity(
+        entity = basicEntity(
             map_stats= attributes["map_stats"],
             coord_x= attributes["coord_x"],
             coord_y= attributes["coord_y"],
             speed= attributes["speed"],
             start_delay= attributes["start_delay"]
             )
+        
+        self.entities_list.append(entity)
+
+        return entity
