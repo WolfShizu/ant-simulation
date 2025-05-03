@@ -34,15 +34,17 @@ class EntityHandler:
 
     def get_intentions(self):
         """
-        Gera uma lista com as intenções das entidades
+        Gera uma lista com um dicionário da intenção das entidades
         """
-        pass
+        return [entity.get_intention() for entity in self.entities_type.values()]
     
-    def recalculate_intentions(self, intentions):
+    def recalculate_intentions(self, entities_id):
         """
         Recalcula a intenção das entidades
+        Args:
+            entities_id(list): Lista com o ID das entidades
         """
-        pass
+        return [self.entities_map[id].get_intention() for id in entities_id]
 
     def create_entity(self, entity_type: str, attributes: dict):
         """
