@@ -59,6 +59,17 @@ class basicEntity:
             dict: Dicionário com os dados da ação
         """
         generated_intention = self._generate_intentions()
+        
+        """Test"""
+        generated_intention = {
+            "action": "move",
+            "target_x": 1,
+            "target_y": 1,
+            "extra_data": {
+                "range": 1 
+            }
+        }
+        """Test"""
 
         extra_data = generated_intention["extra_data"] # Dados não obrigatórios (ex: dano, cura)
 
