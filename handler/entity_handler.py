@@ -36,7 +36,7 @@ class EntityHandler:
         """
         Gera uma lista com um dicionário da intenção das entidades
         """
-        return [entity.get_intention() for entity in self.entities_type.values()]
+        return [entity.get_intention() for entity in self.entities_map.values()]
     
     def recalculate_intentions(self, entities_id):
         """
@@ -56,7 +56,7 @@ class EntityHandler:
         create_entity_function = self.entities_type.get(entity_type) # Pega a função da entidade escolhida
 
         if create_entity_function:
-            entity = create_entity_function(self._new_id, attributes)
+            entity = create_entity_function(self._new_id(), attributes)
             self._register_entity(entity)
             return entity
         else:
